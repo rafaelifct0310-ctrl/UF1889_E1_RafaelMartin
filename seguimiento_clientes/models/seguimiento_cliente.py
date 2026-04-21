@@ -1,5 +1,4 @@
-from odoo import models, fields, api
-from datetime import date
+from odoo import models, fields
 
 
 class SeguimientoCliente(models.Model):

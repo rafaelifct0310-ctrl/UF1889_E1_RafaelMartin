@@ -1,1 +1,1 @@
-from . import seguimiento_cliente
+from .seguimiento_cliente import SeguimientoCliente

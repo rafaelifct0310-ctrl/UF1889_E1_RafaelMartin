@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="demo_seguimiento_1" model="seguimiento.cliente">
+        <field name="nombre">Llamada de seguimiento</field>
+        <field name="cliente_id" ref="base.res_partner_1"/>
+        <field name="fecha">2026-04-21</field>
+        <field name="estado">pendiente</field>
+        <field name="notas">Contactar para presentar nuevo producto</field>
+    </record>
+</odoo>
