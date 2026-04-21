@@ -5,7 +5,7 @@
         <field name="name">seguimiento.cliente.tree</field>
         <field name="model">seguimiento.cliente</field>
         <field name="arch" type="xml">
-            <tree string="Seguimiento de Clientes" default_order="fecha desc">
+            <list string="Seguimiento de Clientes" default_order="fecha desc">
                 <field name="nombre"/>
                 <field name="cliente_id"/>
                 <field name="fecha"/>
