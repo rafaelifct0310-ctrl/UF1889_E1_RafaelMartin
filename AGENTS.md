@@ -6,41 +6,34 @@ Odoo 19 add-on module for customer follow-up management.
 ## Module Structure
 ```
 seguimiento_clientes/
-├── __init__.py           # Empty, imports models
-├── __manifest__.py       # Module metadata (depends: base, contacts)
+├── __init__.py                     # Imports models
+├── __manifest__.py                # Module metadata (depends: base, contacts)
 ├── models/
-│   ├── __init__.py       # Empty
-│   └── seguimiento.py    # Model: seguimiento.cliente
+│   ├── __init__.py
+│   └── seguimiento_cliente.py    # Model: seguimiento.cliente
 ├── views/
-│   ├── seguimiento_views.xml    # Tree, Form, Search views + action + menu
-│   └── seguimiento_menu.xml     # Empty (menu defined in views.xml)
+│   ├── seguimiento_cliente_views.xml  # Tree, Form, Search, action, menu
+│   └── seguimiento_menu.xml         # Empty (menu in views.xml)
 ├── security/
-│   └── ir.model.access.csv      # Missing - needs creation
-├── data/
+│   └── ir.model.access.csv          # Access control
 ├── demo/
+│   └── demo.xml
 └── test/
-    └── __init__.py               # Empty
+    └── test_seguimiento_cliente.py
 ```
 
-## Key Commands
+## Commands
 - **Odoo shell**: `odoo shell -d <database>`
-- **Upgrade module**: Apps > Update module list > Upgrade seguimiento_clientes
-- **Run tests**: Odoo automatically discovers tests in `test/` directory
-
-## Critical Notes
-- This is an Odoo module, not a standalone Python project
-- No standard `npm`, `pip`, or build commands apply
-- Module must be installed within an Odoo 19 instance
-- The `security/ir.model.access.csv` file is referenced in `__manifest__.py` but missing - must be created
-- `views/seguimiento_menu.xml` is empty but menu is already defined in `seguimiento_views.xml`
+- **Install/Upgrade**: Apps > Update Apps List > Install/Upgrade seguimiento_clientes
+- **Tests**: Odoo auto-discovers tests in `test/` - run via Odoo shell or UI
 
 ## Model: seguimiento.cliente
 - `_name`: `seguimiento.cliente`
-- Fields: `nombre`, `cliente_id` (Many2one to res.partner), `fecha`, `estado` (selection: pendiente/realizado), `notas`
-- Method: `action_marcar_realizado()` marks record as "realizado"
+- Fields: `nombre`, `cliente_id` (Many2one to res.partner), `fecha`, `estado` (pendiente/realizado), `notas`
+- Method: `action_marcar_realizado()` sets estado = 'realizado'
 
-## Common Odoo Errors to Avoid
-- View arch malformed: always close XML tags properly
-- Field name mismatch: Python field names must match XML `<field name="">`
-- Missing dependencies in `__manifest__.py` causes installation failure
-- Must run "Update Apps List" in Odoo after adding new module
+## Common Odoo Gotchas
+- View arch: close all XML tags properly
+- Field names: Python field names must match XML `<field name="...">`
+- After code changes: run "Update Apps List" in Odoo
+- Menu defined in `seguimiento_cliente_views.xml`, not in empty `seguimiento_menu.xml`
