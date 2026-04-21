@@ -17,7 +17,6 @@
     'data': [
         'security/ir.model.access.csv',
         'views/seguimiento_cliente_views.xml',
-        'views/seguimiento_cliente_menu.xml',
     ],
     'demo': [
         'demo/demo.xml',
