@@ -67,6 +67,6 @@
     <menuitem id="menu_seguimiento_cliente"
               name="Seguimiento Clientes"
               action="action_seguimiento_cliente"
-              parent="contacts.menu_contacts"
+              parent="contacts.menu_contact"
               sequence="10"/>
 </odoo>
